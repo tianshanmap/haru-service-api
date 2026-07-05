@@ -58,7 +58,7 @@ const api = {
         }  
         return invokeRemote();
    },
-   saveNotes: () => {
+   saveNotes: (request) => {
     const remote_url = API_BASE_URL_8080 + "/texteditor/save";
     const invokeRemote = async () => {
         try {
