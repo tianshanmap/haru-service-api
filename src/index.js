@@ -128,7 +128,7 @@ const api = {
    },
    getDownloadEndPoint: (name) => API_BASE_URL_8081 + '/filesystem/download-chunk?name=' + name,
    unzip: (fileId,target) => callRemote(API_BASE_URL_8081 + "/filesystem/unzip?filename=" + fileId + "&target=" + target),
-   download_chunk: (filename,onProgress) => {
+   download_chunk: async (filename,onProgress) => {
         const createDownload = (blob,download_filename) => {
             const downloadUrl = URL.createObjectURL(blob);
             const downloadAnchor = document.createElement('a');
