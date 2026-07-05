@@ -82,7 +82,7 @@ const api = {
     }  
     return invokeRemote();
    },
-   getNotes: (name) => {
+   getNotes: async (name) => {
     const remote_url = API_BASE_URL_8080 + "/texteditor/load?name=" + name;
     try {
         const response = await fetch(remote_url);
