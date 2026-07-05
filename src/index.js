@@ -127,7 +127,6 @@ const api = {
     return fileId;
    },
    getDownloadEndPoint: (name) => API_BASE_URL_8081 + '/filesystem/download-chunk?name=' + name,
-   chunkUpload: (file,targetPath,setProgress) => uploadFileInChunks(file,targetPath,setProgress),
    unzip: (fileId,target) => callRemote(API_BASE_URL_8081 + "/filesystem/unzip?filename=" + fileId + "&target=" + target)
 };
 
