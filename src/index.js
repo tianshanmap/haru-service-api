@@ -12,6 +12,10 @@ const callRemote = async (remote_url) => {
       }
 }  
 
+const api = {
+    getDirectory: (name) => callRemote(API_BASE_URL_8080 + '/folder?name=' + name),
+};
+
 export default function getDirectory(name) {
     return callRemote(API_BASE_URL_8080 + '/folder?name=' + name)
 }
@@ -125,3 +129,4 @@ export async function getNotes(name) {
         return null;
     }
 }    
+export default api;
