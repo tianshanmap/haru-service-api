@@ -17,7 +17,7 @@ const callRemote = async (remote_url) => {
 
 const api = {
     getDirectory: (name) => callRemote(API_BASE_URL_8080 + '/folder?name=' + name),
-    getRoot: () => getDirectory("/"),
+    getRoot: () => callRemote(API_BASE_URL_8080 + '/folder?name=/'),
     copy: (from,to) => callRemote(API_BASE_URL_8080 + '/copy?name=' + from + '&parent=' + to),
     move: (from,to) => callRemote(API_BASE_URL_8080 + '/move?name=' + from + '&parent=' + to),
     deleteFile: (name,target="") => {
