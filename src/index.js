@@ -186,7 +186,7 @@ const api = {
         const blob = new Blob(chunks, { type: "application/octet-stream" });
         createDownload(blob,download_filename);
     },
-    getVideoUploadPath: () => callRemote(API_BASE_URL_9081 + '/filesystem/upload_target_path'),
+    getVideoUploadPath: () => callRemote(API_BASE_URL_9082 + '/filesystem/upload_target_path'),
 };
 
 export default api;
