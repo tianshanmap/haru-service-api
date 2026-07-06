@@ -1,5 +1,6 @@
-const API_BASE_URL_8080 = window.APP_CONFIG.API_URL_8080;
-const API_BASE_URL_8081 = window.APP_CONFIG.API_URL_8081;
+const API_BASE_URL_9080 = window.APP_CONFIG.API_URL_9080;
+const API_BASE_URL_9081 = window.APP_CONFIG.API_URL_9081;
+const API_BASE_URL_9082 = window.APP_CONFIG.API_URL_9082;
 const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB
 
 // Reusable request wrapper
@@ -16,26 +17,26 @@ const callRemote = async (remote_url) => {
 }  
 
 const api = {
-    getDirectory: (name) => callRemote(API_BASE_URL_8080 + '/folder?name=' + name),
-    getRoot: () => callRemote(API_BASE_URL_8080 + '/folder?name=/'),
-    copy: (from,to) => callRemote(API_BASE_URL_8080 + '/copy?name=' + from + '&parent=' + to),
-    move: (from,to) => callRemote(API_BASE_URL_8080 + '/move?name=' + from + '&parent=' + to),
+    getDirectory: (name) => callRemote(API_BASE_URL_9080 + '/folder?name=' + name),
+    getRoot: () => callRemote(API_BASE_URL_9080 + '/folder?name=/'),
+    copy: (from,to) => callRemote(API_BASE_URL_9080 + '/copy?name=' + from + '&parent=' + to),
+    move: (from,to) => callRemote(API_BASE_URL_9080 + '/move?name=' + from + '&parent=' + to),
     deleteFile: (name,target="") => {
         if (target == "")
-            return callRemote(API_BASE_URL_8080 + '/delete?name=' + name);
+            return callRemote(API_BASE_URL_9080 + '/delete?name=' + name);
         else 
-            return callRemote(API_BASE_URL_8080  + '/delete?name=' + name + '&parent=' + target);
+            return callRemote(API_BASE_URL_9080  + '/delete?name=' + name + '&parent=' + target);
    },
-   createDirectory: (name,target) => callRemote(API_BASE_URL_8080  + '/create?name=' + name + '&parent=' + target),
-   convertMtsToMp4: (name,target) => callRemote(API_BASE_URL_8080  + '/convert?name=' + name + '&parent=' + target),
-   getViewEndPoint: (name) => API_BASE_URL_8080  + '/view?name=' + name,
-   getUploadEndPoint: () => API_BASE_URL_8080  + '/upload',
-   getDeleteEndPoint: (name,parent) => API_BASE_URL_8080  + '/delete?name=' + name + "&parent=" + parent,
-   getMoveEndPoint: (name,target) => API_BASE_URL_8080  + '/move?name=' + name + "&parent=" + parent,
-   getCreateEndPoint: (name,target) => API_BASE_URL_8080  + '/create?name=' + name + "&parent=" + parent,
-   getAudioGenerateEndPoint: () => API_BASE_URL_8080  + '/audio/generate',
+   createDirectory: (name,target) => callRemote(API_BASE_URL_9080  + '/create?name=' + name + '&parent=' + target),
+   convertMtsToMp4: (name,target) => callRemote(API_BASE_URL_9080  + '/convert?name=' + name + '&parent=' + target),
+   getViewEndPoint: (name) => API_BASE_URL_9080  + '/view?name=' + name,
+   getUploadEndPoint: () => API_BASE_URL_9080  + '/upload',
+   getDeleteEndPoint: (name,parent) => API_BASE_URL_9080  + '/delete?name=' + name + "&parent=" + parent,
+   getMoveEndPoint: (name,target) => API_BASE_URL_9080  + '/move?name=' + name + "&parent=" + parent,
+   getCreateEndPoint: (name,target) => API_BASE_URL_9080  + '/create?name=' + name + "&parent=" + parent,
+   getAudioGenerateEndPoint: () => API_BASE_URL_9080  + '/audio/generate',
    generateVideo: (request) => {
-        const remote_url = API_BASE_URL_8080 + "/video/generate/v1";
+        const remote_url = API_BASE_URL_9080 + "/video/generate/v1";
         const invokeRemote = async () => {
             try {
                 const response = await fetch(remote_url, {
@@ -59,7 +60,7 @@ const api = {
         return invokeRemote();
    },
    saveNotes: (request) => {
-    const remote_url = API_BASE_URL_8080 + "/texteditor/save";
+    const remote_url = API_BASE_URL_9080 + "/texteditor/save";
     const invokeRemote = async () => {
         try {
             const response = await fetch(remote_url, {
@@ -83,7 +84,7 @@ const api = {
     return invokeRemote();
    },
    getNotes: async (name) => {
-    const remote_url = API_BASE_URL_8080 + "/texteditor/load?name=" + name;
+    const remote_url = API_BASE_URL_9080 + "/texteditor/load?name=" + name;
     try {
         const response = await fetch(remote_url);
         const data = await response.json();
@@ -115,8 +116,8 @@ const api = {
       formData.append('totalChunks', totalChunks.toString());
       formData.append('fileChunk', chunk);
 
-      console.log("uploadFileInChunks-url==" + API_BASE_URL_8081 + '/filesystem/upload_chunk');
-      await fetch(API_BASE_URL_8081 + '/filesystem/upload_chunk', {
+      console.log("uploadFileInChunks-url==" + API_BASE_URL_9081 + '/filesystem/upload_chunk');
+      await fetch(API_BASE_URL_9081 + '/filesystem/upload_chunk', {
         method: 'POST',
         body: formData,
       });
@@ -126,8 +127,8 @@ const api = {
     console.log("uploadFileInChunks,fileId=" + fileId);    
     return fileId;
    },
-   getDownloadEndPoint: (name) => API_BASE_URL_8081 + '/filesystem/download-chunk?name=' + name,
-   unzip: (fileId,target) => callRemote(API_BASE_URL_8081 + "/filesystem/unzip?filename=" + fileId + "&target=" + target),
+   getDownloadEndPoint: (name) => API_BASE_URL_9081 + '/filesystem/download-chunk?name=' + name,
+   unzip: (fileId,target) => callRemote(API_BASE_URL_9081 + "/filesystem/unzip?filename=" + fileId + "&target=" + target),
    download_chunk: async (filename,onProgress) => {
         const createDownload = (blob,download_filename) => {
             const downloadUrl = URL.createObjectURL(blob);
@@ -143,7 +144,7 @@ const api = {
             URL.revokeObjectURL(downloadUrl);
             console.log("Download complete!");
         };
-        const remote_url = API_BASE_URL_8081 + '/filesystem/download-chunk?name=' + filename;
+        const remote_url = API_BASE_URL_9081 + '/filesystem/download-chunk?name=' + filename;
         const response = await fetch(remote_url);
         
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -184,7 +185,8 @@ const api = {
         // 4. Combine chunks into a single Blob
         const blob = new Blob(chunks, { type: "application/octet-stream" });
         createDownload(blob,download_filename);
-    }
+    },
+    getVideoUploadPath: () => callRemote(API_BASE_URL_9081 + '/filesystem/upload_target_path'),
 };
 
 export default api;
