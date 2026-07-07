@@ -188,6 +188,7 @@ const api = {
         createDownload(blob,download_filename);
     },
     getVideoUploadPath: () => callRemote(API_BASE_URL_9082 + '/filesystem/upload_target_path'),
+    getAudioList: () => callRemote(API_BASE_URL_9081 + '/filesystem/video/audio_list'),
 };
 
 export default api;
