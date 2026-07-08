@@ -35,7 +35,7 @@ const api = {
    getDeleteEndPoint: (name,parent) => API_BASE_URL_9080  + '/delete?name=' + name + "&parent=" + parent,
    getMoveEndPoint: (name,target) => API_BASE_URL_9080  + '/move?name=' + name + "&parent=" + parent,
    getCreateEndPoint: (name,target) => API_BASE_URL_9080  + '/create?name=' + name + "&parent=" + parent,
-   getAudioGenerateEndPoint: () => API_BASE_URL_9080  + '/audio/generate',
+   getAudioGenerateEndPoint: () => API_BASE_URL_9082  + '/filesystem/audio/generate',
    generateVideo: (request) => {
         const remote_url = API_BASE_URL_9080 + "/video/generate/v1";
         const invokeRemote = async () => {
