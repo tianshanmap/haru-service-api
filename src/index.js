@@ -37,7 +37,7 @@ const api = {
    getCreateEndPoint: (name,target) => API_BASE_URL_9080  + '/create?name=' + name + "&parent=" + parent,
    getAudioGenerateEndPoint: () => API_BASE_URL_9082  + '/filesystem/audio/generate',
    generateVideo: (request) => {
-        const remote_url = API_BASE_URL_9080 + "/fielsystem/video/generate/v1";
+        const remote_url = API_BASE_URL_9082 + "/fielsystem/video/generate/v1";
         const invokeRemote = async () => {
             try {
                 const response = await fetch(remote_url, {
