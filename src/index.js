@@ -189,6 +189,7 @@ const api = {
     },
     getVideoUploadPath: () => callRemote(API_BASE_URL_9082 + '/filesystem/upload_target_path'),
     getAudioList: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/audio_list'),
+    getVideoList: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/export_list'),
 };
 
 export default api;
