@@ -190,7 +190,7 @@ const api = {
     getVideoUploadPath: () => callRemote(API_BASE_URL_9082 + '/filesystem/upload_target_path'),
     getAudioList: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/audio_list'),
     getVideoList: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/export_list'),
-    transform_rotation: (id,angle) => callRemote(API_BASE_URL_9081 + '/transform/rotation?id=' + id + "&angle=" + angle),
+    transform_rotation: (id,angle) => API_BASE_URL_9081 + '/transform/rotation?id=' + id + "&angle=" + angle,
 };
 
 export default api;
