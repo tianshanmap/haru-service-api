@@ -196,7 +196,7 @@ const api = {
     transform_grey_save: (id,angle) => callRemote(API_BASE_URL_9082 + '/transform/grey/save?id=' + id),
     transform_blur: (id) => API_BASE_URL_9082 + '/transform/blur?id=' + id,
     transform_blur_save: (id,angle) => callRemote(API_BASE_URL_9082 + '/transform/blur/save?id=' + id),
-    transform_gaussinblur: (id) => API_BASE_URL_9082 + '/transform/gaussinblur?id=' + id,
+    transform_gaussinblur: (id,sigmaX,sigmaY) => API_BASE_URL_9082 + '/transform/gaussinblur?id=' + id + "&sigmaX=" + sigmaX + "&sigmaY=" + sigmaY,
     transform_gaussinblur_save: (id,angle) => callRemote(API_BASE_URL_9082 + '/transform/gaussinblur/save?id=' + id),
 };
 
