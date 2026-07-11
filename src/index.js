@@ -198,6 +198,7 @@ const api = {
     transform_blur_save: (id,angle) => callRemote(API_BASE_URL_9082 + '/transform/blur/save?id=' + id),
     transform_gaussinblur: (id,sigmaX,sigmaY) => API_BASE_URL_9082 + '/transform/gaussinblur?id=' + id + "&sigmaX=" + sigmaX + "&sigmaY=" + sigmaY,
     transform_gaussinblur_save: (id,angle) => callRemote(API_BASE_URL_9082 + '/transform/gaussinblur/save?id=' + id),
+    transform_medianblur: (id,ksize) => API_BASE_URL_9082 + '/transform/medianblur?id=' + id + "&ksize=" + ksize,
 };
 
 export default api;
