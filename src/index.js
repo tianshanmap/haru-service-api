@@ -192,6 +192,8 @@ const api = {
     getVideoList: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/export_list'),
     transform_rotation: (id,angle) => API_BASE_URL_9082 + '/transform/rotation?id=' + id + "&angle=" + angle,
     transform_rotation_save: (id,angle) => callRemote(API_BASE_URL_9082 + '/transform/rotation/save?id=' + id + "&angle=" + angle),
+    transform_grey: (id) => API_BASE_URL_9082 + '/transform/grey?id=' + id,
+    transform_rotation_save: (id,angle) => callRemote(API_BASE_URL_9082 + '/transform/grey/save?id=' + id),
 };
 
 export default api;
