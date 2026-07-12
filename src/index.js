@@ -203,6 +203,7 @@ const api = {
     transform_flip: (id,direction) => API_BASE_URL_9082 + '/transform/flip?id=' + id + "&direction=" + direction,
     transform_normalize: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/normalize?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
     transform_contrast: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/contrast?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
+    transform_sketch: (id,kind) => API_BASE_URL_9082 + '/transform/sketch?id=' + id + "&kind=" + kind,
 };
 
 export default api;
