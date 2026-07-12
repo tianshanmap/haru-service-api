@@ -202,6 +202,7 @@ const api = {
     transform_bilateral: (id,d,sigma_color,sigma_space) => API_BASE_URL_9082 + '/transform/bilateral?id=' + id + "&diameter=" + d + "&sigmaColor=" + sigma_color + "&sigmaSpace=" + sigma_space,
     transform_flip: (id,direction) => API_BASE_URL_9082 + '/transform/flip?id=' + id + "&direction=" + direction,
     transform_normalize: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/normalize?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
+    transform_contrast: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/contrast?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
 };
 
 export default api;
