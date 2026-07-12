@@ -204,6 +204,7 @@ const api = {
     transform_normalize: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/normalize?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
     transform_contrast: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/contrast?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
     transform_sketch: (id,kind) => API_BASE_URL_9082 + '/transform/sketch?id=' + id + "&kind=" + kind,
+    transform_detail_enhance: (id,sigmaS,sigmaR) => API_BASE_URL_9082 + '/transform/detailEnhance?id=' + id + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR,
 };
 
 export default api;
