@@ -208,6 +208,30 @@ const api = {
     transform_edge_preserving: (id,sigmaS,sigmaR) => API_BASE_URL_9082 + '/transform/edgePreserving?id=' + id + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR,
     transform_greyscale: (id,alphaBlue,alphaGreen,alphaRed) => API_BASE_URL_9082 + '/transform/greyscale?id=' + id + "&alphaBlue=" + alphaBlue + "&alphaGreen=" + alphaGreen + "&alphaRed=" + alphaRed,
     transform_style: (id,sigmaS,sigmaR) => API_BASE_URL_9082 + '/transform/style?id=' + id + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR,
+    captureImage: (request) => {
+        const remote_url = API_BASE_URL_9082 + "/video/capture";
+        const invokeRemote = async () => {
+            try {
+                const response = await fetch(remote_url, {
+                    method: 'POST', // Explicitly declare POST method
+                    headers: {
+                        'Content-Type': 'application/json', // Instruct the server you are sending JSON data
+                    },
+                    body: JSON.stringify(request), // Serialize JavaScript object to JSON string
+                });
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json(); // Parse the server response
+                return data;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                return null;
+            }
+        }  
+        return invokeRemote();
+    },
 };
 
 export default api;
