@@ -203,7 +203,7 @@ const api = {
     transform_flip: (id,direction) => API_BASE_URL_9082 + '/transform/flip?id=' + id + "&direction=" + direction,
     transform_normalize: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/normalize?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
     transform_contrast: (id,alpha,beta) => API_BASE_URL_9082 + '/transform/contrast?id=' + id + "&alpha=" + alpha + "&beta=" + beta,
-    transform_sketch: (id,kind) => API_BASE_URL_9082 + '/transform/sketch?id=' + id + "&kind=" + kind,
+    transform_sketch: (id,kind,sigmaS,sigmaR,shade) => API_BASE_URL_9082 + '/transform/sketch?id=' + id + "&kind=" + kind + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR + "&shadeFactor=" + shade,
     transform_detail_enhance: (id,sigmaS,sigmaR) => API_BASE_URL_9082 + '/transform/detailEnhance?id=' + id + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR,
     transform_edge_preserving: (id,sigmaS,sigmaR) => API_BASE_URL_9082 + '/transform/edgePreserving?id=' + id + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR,
     transform_greyscale: (id,alphaBlue,alphaGreen,alphaRed) => API_BASE_URL_9082 + '/transform/greyscale?id=' + id + "&alphaBlue=" + alphaBlue + "&alphaGreen=" + alphaGreen + "&alphaRed=" + alphaRed,
