@@ -207,6 +207,7 @@ const api = {
     transform_detail_enhance: (id,sigmaS,sigmaR) => API_BASE_URL_9082 + '/transform/detailEnhance?id=' + id + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR,
     transform_edge_preserving: (id,sigmaS,sigmaR) => API_BASE_URL_9082 + '/transform/edgePreserving?id=' + id + "&sigmaS=" + sigmaS + "&sigmaR=" + sigmaR,
     transform_greyscale: (id,alphaBlue,alphaGreen,alphaRed) => API_BASE_URL_9082 + '/transform/greyscale?id=' + id + "&alphaBlue=" + alphaBlue + "&alphaGreen=" + alphaGreen + "&alphaRed=" + alphaRed,
+    transform_style: (id) => API_BASE_URL_9082 + '/transform/style?id=' + id,
 };
 
 export default api;
