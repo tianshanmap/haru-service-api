@@ -232,6 +232,7 @@ const api = {
         }  
         return invokeRemote();
     },
+    capture_directory: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/capture'),
 };
 
 export default api;
