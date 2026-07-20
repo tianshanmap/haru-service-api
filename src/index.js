@@ -1,6 +1,7 @@
 const API_BASE_URL_9080 = window.APP_CONFIG.API_URL_9080;
 const API_BASE_URL_9081 = window.APP_CONFIG.API_URL_9081;
 const API_BASE_URL_9082 = window.APP_CONFIG.API_URL_9082;
+const API_BASE_URL_9083 = window.APP_CONFIG.API_URL_9083;
 const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB
 
 // Reusable request wrapper
@@ -233,6 +234,32 @@ const api = {
         return invokeRemote();
     },
     capture_directory: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/capture'),
+    createPassword: (request) => {
+        const remote_url = API_BASE_URL_9083 + "/password";
+        const invokeRemote = async () => {
+            try {
+                const response = await fetch(remote_url, {
+                    method: 'POST', // Explicitly declare POST method
+                    headers: {
+                        'Content-Type': 'application/json', // Instruct the server you are sending JSON data
+                    },
+                    body: JSON.stringify(request), // Serialize JavaScript object to JSON string
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json(); // Parse the server response
+                return data;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                return null;
+            }
+        }  
+        return invokeRemote();
+    },
+    deletePassword: (key) => callRemote(API_BASE_URL_9082 + '/password/delete/' + key),
+    listPasswords: () => callRemote(API_BASE_URL_9082 + '/password/list'),
 };
 
 export default api;
