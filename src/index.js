@@ -235,7 +235,7 @@ const api = {
     },
     capture_directory: () => callRemote(API_BASE_URL_9082 + '/filesystem/video/capture'),
     createPassword: (request) => {
-        const remote_url = API_BASE_URL_9083 + "/password";
+        const remote_url = API_BASE_URL_9083 + "/create";
         const invokeRemote = async () => {
             try {
                 const response = await fetch(remote_url, {
