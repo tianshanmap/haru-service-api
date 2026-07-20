@@ -258,7 +258,7 @@ const api = {
         }  
         return invokeRemote();
     },
-    deletePassword: (key) => callRemote(API_BASE_URL_9083 + '/delete/' + key),
+    deletePassword: (key) => callRemote(API_BASE_URL_9083 + '/purge/' + key),
     listPasswords: () => callRemote(API_BASE_URL_9083 + '/list'),
 };
 
