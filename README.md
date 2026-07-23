@@ -18,6 +18,6 @@ npm install https://github.com/tianshanmap/haru-reactjs-component-explorer
 ```
 The file can be deleted without any issues. For a clean start, better delete it and then npm install.
 This command will install all the component under node_modules based on the settings in package.json
-
+ss
 
 ```
