@@ -287,7 +287,7 @@ const api = {
     getPassword: (key) => callRemote(API_BASE_URL_9083 + '/' + key),
     backupPassword: () => callRemote(API_BASE_URL_9083 + '/backup'),
     exportPasswordEndPoint: () => API_BASE_URL_9083 + '/export',
-    importPassword: (file) => {
+    importPassword: (file,setStatus) => {
         const remote_url = API_BASE_URL_9083 + "/import";
         const invokeRemote = async () => {
             // Construct multipart/form-data payload
