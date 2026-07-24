@@ -287,6 +287,36 @@ const api = {
     getPassword: (key) => callRemote(API_BASE_URL_9083 + '/' + key),
     backupPassword: () => callRemote(API_BASE_URL_9083 + '/backup'),
     exportPasswordEndPoint: () => API_BASE_URL_9083 + '/export',
+    importPassword: (file) => {
+        const remote_url = API_BASE_URL_9083 + "/import";
+        const invokeRemote = async () => {
+            // Construct multipart/form-data payload
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+            setStatus('Uploading...');
+            
+            // Replace with your actual backend API endpoint
+            const response = await fetch(remote_url, {
+                method: 'POST',
+                body: formData,
+                // Note: Do NOT set Content-Type header manually. 
+                // The browser automatically sets it to multipart/form-data with boundaries.
+            });
+
+            if (response.ok) {
+                setStatus('Upload successful! 🎉');
+            } else {
+                setStatus('Upload failed. Server error.');
+            }
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                setStatus('Upload failed. Network error.');
+            }        
+        }  
+        return invokeRemote();
+    },
 };
 
 export default api;
