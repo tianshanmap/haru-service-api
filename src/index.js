@@ -307,6 +307,8 @@ const api = {
 
             if (response.ok) {
                 setStatus('Upload successful! 🎉');
+                const data = await response.json(); // Parse the server response
+                return data;
             } else {
                 setStatus('Upload failed. Server error.');
             }
