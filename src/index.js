@@ -286,6 +286,7 @@ const api = {
     listPasswords: () => callRemote(API_BASE_URL_9083 + '/list'),
     getPassword: (key) => callRemote(API_BASE_URL_9083 + '/' + key),
     backupPassword: () => callRemote(API_BASE_URL_9083 + '/backup'),
+    exportPassword: () => callRemote(API_BASE_URL_9083 + '/export'),
 };
 
 export default api;
