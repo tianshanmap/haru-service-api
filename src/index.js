@@ -2,6 +2,7 @@ const API_BASE_URL_9080 = window.APP_CONFIG.API_URL_9080;
 const API_BASE_URL_9081 = window.APP_CONFIG.API_URL_9081;
 const API_BASE_URL_9082 = window.APP_CONFIG.API_URL_9082;
 const API_BASE_URL_9083 = window.APP_CONFIG.API_URL_9083;
+const API_BASE_URL_9083_APPOINTMENT = window.APP_CONFIG.API_URL_9083_APPOINTMENT;
 const CHUNK_SIZE = 5 * 1024 * 1024; // 5MB
 
 // Reusable request wrapper
@@ -319,6 +320,33 @@ const api = {
         }  
         return invokeRemote();
     },
+    createAppointment: (request) => {
+        const remote_url = API_BASE_URL_9083_APPOINTMENT + "/create";
+        const invokeRemote = async () => {
+            try {
+                const response = await fetch(remote_url, {
+                    method: 'POST', // Explicitly declare POST method
+                    headers: {
+                        'Content-Type': 'application/json', // Instruct the server you are sending JSON data
+                    },
+                    body: JSON.stringify(request), // Serialize JavaScript object to JSON string
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json(); // Parse the server response
+                return data;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                return null;
+            }
+        }  
+        return invokeRemote();
+    },
+    deleteAppointmentByDate: (start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + start_date),
+    deleteAppointmentByDatetime: (start_date,start_time) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + start_date + "/" + start_time),
+    listAppointments: (start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list/' + start_date),
 };
 
 export default api;
