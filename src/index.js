@@ -344,10 +344,10 @@ const api = {
         }  
         return invokeRemote();
     },
-    deleteAppointmentByDate: (start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + start_date),
-    deleteAppointmentByDatetime: (start_date,start_time) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + start_date + "/" + start_time),
-    listAppointments: (start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list/' + start_date),
-    listAppointmentsByMonth: (start_month) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list-month/' + start_month),
+    deleteAppointmentByDate: (name,start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + name + "/" + start_date),
+    deleteAppointmentByDatetime: (name,start_date,start_time) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + name + "/" + start_date + "/" + start_time),
+    listAppointments: (name,start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list/' + name + "/" + start_date),
+    listAppointmentsByMonth: (name,start_month) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list-month/' + name + "/" + start_month),
 };
 
 export default api;
