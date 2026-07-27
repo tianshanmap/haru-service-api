@@ -347,6 +347,7 @@ const api = {
     deleteAppointmentByDate: (start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + start_date),
     deleteAppointmentByDatetime: (start_date,start_time) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + start_date + "/" + start_time),
     listAppointments: (start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list/' + start_date),
+    listAppointmentsByMonth: (start_month) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list-month/' + start_month),
 };
 
 export default api;
