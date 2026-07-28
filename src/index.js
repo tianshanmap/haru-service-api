@@ -344,6 +344,30 @@ const api = {
         }  
         return invokeRemote();
     },
+    updateAppointment: (request) => {
+        const remote_url = API_BASE_URL_9083_APPOINTMENT + "/update";
+        const invokeRemote = async () => {
+            try {
+                const response = await fetch(remote_url, {
+                    method: 'POST', // Explicitly declare POST method
+                    headers: {
+                        'Content-Type': 'application/json', // Instruct the server you are sending JSON data
+                    },
+                    body: JSON.stringify(request), // Serialize JavaScript object to JSON string
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json(); // Parse the server response
+                return data;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                return null;
+            }
+        }  
+        return invokeRemote();
+    },
     deleteAppointmentByDate: (name,start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + name + "/" + start_date),
     deleteAppointmentByDatetime: (name,start_date,start_time) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/delete/' + name + "/" + start_date + "/" + start_time),
     listAppointments: (name,start_date) => callRemote(API_BASE_URL_9083_APPOINTMENT + '/list/' + name + "/" + start_date),
