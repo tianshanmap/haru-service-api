@@ -120,8 +120,8 @@ const api = {
       formData.append('totalChunks', totalChunks.toString());
       formData.append('fileChunk', chunk);
 
-      console.log("uploadFileInChunks-url==" + API_BASE_URL_9081 + '/filesystem/upload_chunk');
-      await fetch(API_BASE_URL_9081 + '/filesystem/upload_chunk', {
+      console.log("uploadFileInChunks-url==" + API_BASE_URL_9081 + '/upload_chunk');
+      await fetch(API_BASE_URL_9081 + '/upload_chunk', {
         method: 'POST',
         body: formData,
       });
@@ -131,8 +131,8 @@ const api = {
     console.log("uploadFileInChunks,fileId=" + fileId);    
     return fileId;
    },
-   getDownloadEndPoint: (name) => API_BASE_URL_9081 + '/filesystem/download-chunk?name=' + name,
-   unzip: (fileId,target) => callRemote(API_BASE_URL_9081 + "/filesystem/unzip?filename=" + fileId + "&target=" + target),
+   getDownloadEndPoint: (name) => API_BASE_URL_9081 + '/download-chunk?name=' + name,
+   unzip: (fileId,target) => callRemote(API_BASE_URL_9081 + "/unzip?filename=" + fileId + "&target=" + target),
    download_chunk: async (filename,onProgress) => {
         const createDownload = (blob,download_filename) => {
             const downloadUrl = URL.createObjectURL(blob);
@@ -148,7 +148,7 @@ const api = {
             URL.revokeObjectURL(downloadUrl);
             console.log("Download complete!");
         };
-        const remote_url = API_BASE_URL_9081 + '/filesystem/download-chunk?name=' + filename;
+        const remote_url = API_BASE_URL_9081 + '/download-chunk?name=' + filename;
         const response = await fetch(remote_url);
         
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
